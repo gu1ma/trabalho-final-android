@@ -23,5 +23,5 @@ abstract class ReviewDatabase : RoomDatabase() {
 
     }
 
-    abstract fun reviewDao(): ReviewDao
+     abstract fun reviewDao(): ReviewDao
 }
