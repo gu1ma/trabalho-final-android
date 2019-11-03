@@ -25,6 +25,10 @@ class ReviewDAOSQLite{
         writableDatabase.close()
     }
 
+
+    /* Dando erro neste metodo, verificar dps */
+
+
 //    fun listAll(): List<Review> {
 //        val readableDatabase = dbHelper.readableDatabase
 //        val cursor: Cursor = readableDatabase.selectAll(
