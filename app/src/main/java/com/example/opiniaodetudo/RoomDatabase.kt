@@ -20,7 +20,8 @@ abstract class ReviewDatabase : RoomDatabase() {
             }
             return instance!!
         }
+
     }
 
-    abstract fun reviewDao():ReviewDao
+    abstract fun reviewDao(): ReviewDao
 }

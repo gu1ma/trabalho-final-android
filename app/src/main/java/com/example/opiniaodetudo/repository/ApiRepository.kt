@@ -1,24 +1,24 @@
 package com.example.opiniaodetudo.repository
 
+import android.content.Context
+import com.example.opiniaodetudo.ReviewDatabase
+import com.example.opiniaodetudo.infra.dao.ReviewDao
 import com.example.opiniaodetudo.model.Review
 import java.util.*
 
-class ReviewRepository{
+class ReviewRepository {
 
-    private constructor()
-
-    companion object {
-        val instance : ReviewRepository = ReviewRepository()
+    private val reviewDao: ReviewDao
+    constructor(context: Context){
+        val reviewDatabase = ReviewDatabase.getInstance(context)
+        //dando erro nesta linha, verificar dps
+        reviewDao = reviewDatabase.reviewDao()
     }
-
-    private val reviewDao = mutableListOf<Review>()
     fun save(name: String, review: String) {
-        reviewDao.add(Review(UUID.randomUUID().toString(), name, review))
+        reviewDao.save(Review(UUID.randomUUID().toString(), name, review))
     }
-
     fun listAll(): List<Review> {
-        return reviewDao.toList()
+        return reviewDao.listAll()
     }
-
 
 }
