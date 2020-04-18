@@ -8,20 +8,21 @@ import com.example.opiniaodetudo.infra.dao.ReviewDao
 import com.example.opiniaodetudo.model.Review
 
 
-@Database(entities = arrayOf(Review::class), version = 2)
+@Database(entities = arrayOf(Review::class), version = 2, exportSchema = false)
 abstract class ReviewDatabase : RoomDatabase() {
     companion object {
-        private var instance: RoomDatabase? = null
-        fun getInstance(context: Context): RoomDatabase {
-            if (instance == null) {
+        private var instance: ReviewDatabase? = null
+
+        fun getInstance(context: Context): ReviewDatabase {
+            if(instance == null) {
                 instance = Room
-                    .databaseBuilder(context, RoomDatabase::class.java, "review_database")
+                    .databaseBuilder(context, ReviewDatabase::class.java, "review_database")
                     .build()
             }
+
             return instance!!
         }
-
     }
 
-     abstract fun reviewDao(): ReviewDao
+    abstract fun reviewDao(): ReviewDao
 }

@@ -45,18 +45,12 @@ class MainActivity: AppCompatActivity() {
         buttonSave.setOnClickListener {
             val name = inputNome.text
             val review = inputOpiniao.text
-            Toast.makeText(this, "Nome:$name - Opinião:$review", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Nome:$name - Opinião:$review", Toast.LENGTH_LONG).show()
 
-            ReviewRepository(this).save(name.toString(), review.toString())
-
-            //startActivity(Intent(this, ListActivity::class.java))
-
-            // começo do setOnClickListener
             object: AsyncTask<Void, Void, Unit>() {
                 override fun doInBackground(vararg params: Void?) {
                     val repository = ReviewRepository(this@MainActivity.applicationContext)
                     repository.save(name.toString(), review.toString())
-                    startActivity(Intent(this@MainActivity, ListActivity::class.java))
                 }
             }.execute()
         }
