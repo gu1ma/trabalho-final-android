@@ -2,4 +2,11 @@
     <string name="app_name">OpiniaoDeTudo</string>
     <string name="form_title">Nova Opinião</string>
     <string name="gravar">Gravar</string>
+
+    <string name="item_list_edit">
+        Editar item
+    </string>
+    <string name="item_list_delete">
+        Excluir item
+    </string>
 </resources>

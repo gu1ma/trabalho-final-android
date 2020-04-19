@@ -1,6 +1,7 @@
 package com.example.opiniaodetudo.infra.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.opiniaodetudo.model.Review
@@ -15,4 +16,6 @@ interface ReviewDao {
     fun listAll():List<Review>
 
 
+    @Delete
+    fun delete(item: Review)
 }
