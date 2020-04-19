@@ -17,6 +17,7 @@ abstract class ReviewDatabase : RoomDatabase() {
             if(instance == null) {
                 instance = Room
                     .databaseBuilder(context, ReviewDatabase::class.java, "review_database")
+                    .allowMainThreadQueries()
                     .build()
             }
 
