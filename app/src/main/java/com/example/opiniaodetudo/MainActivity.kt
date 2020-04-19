@@ -4,11 +4,9 @@ import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.opiniaodetudo.model.Review
@@ -41,8 +39,10 @@ class MainActivity: AppCompatActivity() {
 
                     if(reviewToEdit == null){
                         repository.save(name.toString(), review.toString())
+                        startActivity(Intent(this@MainActivity, ListActivity::class.java))
                     }else{
                         repository.update(reviewToEdit.id, name.toString(), review.toString())
+                        finish()
                     }
                 }
             }.execute()

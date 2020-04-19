@@ -29,6 +29,20 @@ class ListActivity : AppCompatActivity(){
 
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        object : AsyncTask<Unit, Void, Unit>() {
+            override fun doInBackground(vararg params: Unit?) {
+                this@ListActivity.reviews = ReviewRepository(this@ListActivity.applicationContext).listAll().toMutableList()
+            }
+            override fun onPostExecute(result: Unit?) {
+                val listView = findViewById<ListView>(R.id.list_recyclerview)
+                val adapter = listView.adapter as ArrayAdapter<Review>
+                adapter.notifyDataSetChanged()
+            }
+        }.execute()
+    }
+
     private fun delete(item: Review) {
         object: AsyncTask<Unit, Void, Unit>(){
             override fun doInBackground(vararg params: Unit?) {
