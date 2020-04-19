@@ -26,4 +26,8 @@ class ReviewRepository {
         reviewDao.delete(item)
     }
 
+    fun update(id: String, name: String, review: String){
+        reviewDao.update(Review(id, name, review))
+    }
+
 }

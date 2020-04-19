@@ -1,5 +1,6 @@
 package com.example.opiniaodetudo
 
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
@@ -81,6 +82,7 @@ class ListActivity : AppCompatActivity(){
                 when(it.itemId) {
                     R.id.item_list_delete ->
                         delete(reviews[position])
+                    R.id.item_list_edit -> openItemForEdition(reviews[position])
                 }
                 true
             }
@@ -88,6 +90,12 @@ class ListActivity : AppCompatActivity(){
             popupMenu.show()
             true //retorno indicando que o clique foi consumido
         }
+    }
+
+    private fun openItemForEdition(item: Review) {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("item", item)
+        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

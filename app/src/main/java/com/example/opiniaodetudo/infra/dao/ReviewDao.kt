@@ -1,9 +1,6 @@
 package com.example.opiniaodetudo.infra.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.opiniaodetudo.model.Review
 
 
@@ -15,7 +12,9 @@ interface ReviewDao {
     @Query("SELECT * from ${ReviewTableInfo.TABLE_NAME}")
     fun listAll():List<Review>
 
-
     @Delete
     fun delete(item: Review)
+
+    @Update
+    fun update(review: Review)
 }

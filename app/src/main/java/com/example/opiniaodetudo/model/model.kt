@@ -2,6 +2,7 @@ package com.example.opiniaodetudo.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Review(
@@ -9,5 +10,5 @@ data class Review(
     val id: String,
     val name: String,
     val review: String?
-)
+) : Serializable
 
