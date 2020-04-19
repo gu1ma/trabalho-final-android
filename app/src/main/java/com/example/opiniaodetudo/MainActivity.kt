@@ -1,16 +1,11 @@
 package com.example.opiniaodetudo
 
 import android.content.Intent
-import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import com.example.opiniaodetudo.model.Review
-import com.example.opiniaodetudo.repository.ReviewRepository
+import com.example.opiniaodetudo.fragments.FormFragment
 
 
 class MainActivity: AppCompatActivity() {
@@ -18,35 +13,14 @@ class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, FormFragment())
+            .commit()
+        configureAutoHiddenKeyboard()
+    }
 
-        val buttonSave = findViewById<Button>(R.id.button)
-        val inputNome = findViewById<TextView>(R.id.editTextNome)
-        val inputOpiniao = findViewById<TextView>(R.id.editTextOpiniao)
+    fun configureAutoHiddenKeyboard() {
 
-        val reviewToEdit = (intent?.getSerializableExtra("item") as Review?)?.also { review ->
-            inputNome.text = review.name
-            inputOpiniao.text = review.review
-        }
-
-        buttonSave.setOnClickListener {
-            val name = inputNome.text
-            val review = inputOpiniao.text
-            Toast.makeText(this, "Nome:$name - Opinião:$review", Toast.LENGTH_LONG).show()
-
-            object: AsyncTask<Void, Void, Unit>() {
-                override fun doInBackground(vararg params: Void?) {
-                    val repository = ReviewRepository(this@MainActivity.applicationContext)
-
-                    if(reviewToEdit == null){
-                        repository.save(name.toString(), review.toString())
-                        startActivity(Intent(this@MainActivity, ListActivity::class.java))
-                    }else{
-                        repository.update(reviewToEdit.id, name.toString(), review.toString())
-                        finish()
-                    }
-                }
-            }.execute()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
