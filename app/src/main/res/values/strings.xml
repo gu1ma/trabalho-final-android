@@ -2,25 +2,31 @@
     <string name="app_name">OpiniaoDeTudo</string>
     <string name="form_title">Nova Opinião</string>
     <string name="gravar">Gravar</string>
-
     <string name="item_list_edit">
         Editar item
     </string>
     <string name="item_list_delete">
         Excluir item
     </string>
-
     <string name="go_to_list_text">
         Listar opniões
     </string>
     <string name="about_menu_text">
         Sobre
     </string>
-
     <string name="about_title">
         Opnião de tudo
     </string>
     <string name="about_description">
         Este é um aplicativo desenvolvido nas matérias de Android I, II e III na Pós de Desenvolvimento Mobile
+    </string>
+    <string name="author_name">
+        Gabriel Guimarães - 1931088005
+    </string>
+    <string name="title_author_name">
+        Desenvolvido por
+    </string>
+    <string name="version_app">
+        versão 0.0.1
     </string>
 </resources>
