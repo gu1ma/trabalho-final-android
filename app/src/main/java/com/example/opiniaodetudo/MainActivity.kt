@@ -24,13 +24,18 @@ class MainActivity: AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.main_menu_second, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId == R.id.menu_list_reviews){
+        if(item?.itemId == R.id.go_to_list_menu_item){
             startActivity(Intent(this, ListActivity::class.java))
+            return true
+        }
+
+        if(item?.itemId == R.id.about_menu_item) {
+            startActivity(Intent(this, AboutActivity::class.java))
             return true
         }
         return false

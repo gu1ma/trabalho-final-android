@@ -9,4 +9,18 @@
     <string name="item_list_delete">
         Excluir item
     </string>
+
+    <string name="go_to_list_text">
+        Listar opniões
+    </string>
+    <string name="about_menu_text">
+        Sobre
+    </string>
+
+    <string name="about_title">
+        Opnião de tudo
+    </string>
+    <string name="about_description">
+        Este é um aplicativo desenvolvido nas matérias de Android I, II e III na Pós de Desenvolvimento Mobile
+    </string>
 </resources>
